@@ -1,0 +1,454 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Karthikeya Gangaraju Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: engineering graph-paper notebook. Sticky link bar, asymmetric hero with a "profile index", then ruled sections. */
+:root {
+  --bg: #eef1f5;
+  --surface: #f8fafc;
+  --fg: #11182b;
+  --muted: #55607a;
+  --line: #cfd6e2;
+  --grid: rgba(17, 24, 43, 0.045);
+  --accent: #2748d8;
+  --accent-fg: #ffffff;
+  --accent-soft: #dfe5fb;
+  --lc: #b86e00;
+  --hr: #0f8a43;
+  --cc: #7a5a47;
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1424;
+    --surface: #151c30;
+    --fg: #e8ecf7;
+    --muted: #9aa5c0;
+    --line: #2a3452;
+    --grid: rgba(232, 236, 247, 0.04);
+    --accent: #8ea2ff;
+    --accent-fg: #0e1424;
+    --accent-soft: #222c52;
+    --lc: #ffb03a;
+    --hr: #3fd47e;
+    --cc: #d1a78e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1424;
+  --surface: #151c30;
+  --fg: #e8ecf7;
+  --muted: #9aa5c0;
+  --line: #2a3452;
+  --grid: rgba(232, 236, 247, 0.04);
+  --accent: #8ea2ff;
+  --accent-fg: #0e1424;
+  --accent-soft: #222c52;
+  --lc: #ffb03a;
+  --hr: #3fd47e;
+  --cc: #d1a78e;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--bg);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; letter-spacing: -0.02em; }
+p { margin: 0; }
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Top bar */
+.bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; align-items: center; gap: 16px; min-height: 56px; flex-wrap: wrap; padding-block: 8px; }
+.brand { font-family: var(--font-display); font-weight: 700; text-decoration: none; letter-spacing: -0.01em; margin-right: auto; }
+.brand span { color: var(--accent); }
+.nav { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; font-size: 14px; }
+.nav a { text-decoration: none; color: var(--muted); transition: color .15s; }
+.nav a:hover { color: var(--fg); }
+.nav .ext { color: var(--fg); font-weight: 500; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.nav .ext:hover { border-color: var(--accent); color: var(--accent); }
+.theme {
+  font: inherit; font-size: 13px; cursor: pointer; background: transparent; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
+}
+.theme:hover { color: var(--fg); border-color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 72px 56px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700; margin-top: 16px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.role { margin-top: 20px; font-size: 1.15rem; color: var(--fg); max-width: 34ch; }
+.lede { margin-top: 16px; color: var(--muted); max-width: 58ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 12px 20px; border-radius: 8px; border: 1px solid var(--accent);
+  transition: transform .15s, background .15s, color .15s;
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn.primary:hover { transform: translateY(-2px); }
+.btn.ghost { color: var(--accent); background: transparent; }
+.btn.ghost:hover { background: var(--accent-soft); transform: translateY(-2px); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.index {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; min-width: 0;
+}
+.index ul { list-style: none; margin: 14px 0 0; padding: 0; }
+.index li + li { border-top: 1px dashed var(--line); }
+.index a {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; text-decoration: none; padding: 11px 0; min-width: 0;
+}
+.index a b { font-weight: 600; }
+.index a small { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
+.index a:hover b { color: var(--accent); }
+.index a:hover small { color: var(--fg); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 36px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.facts b { color: var(--fg); font-weight: 500; }
+
+/* Sections */
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.sec-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
+.sec-head a { font-size: 14px; color: var(--accent); text-underline-offset: 3px; }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.project h3 { font-size: 1.5rem; }
+.project dl { margin: 0; display: grid; gap: 10px; }
+.project dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.project dd { margin: 2px 0 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.chip { font-family: var(--font-mono); font-size: 12px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.project .go { font-size: 14px; font-weight: 600; color: var(--accent); text-underline-offset: 3px; }
+
+/* Coding platforms */
+.platforms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.plat {
+  display: flex; flex-direction: column; gap: 14px; text-decoration: none; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 10px; padding: 22px; min-width: 0;
+  transition: transform .18s, border-color .18s;
+}
+.plat:hover { transform: translateY(-3px); border-color: var(--tint); }
+.plat .top { display: flex; align-items: center; gap: 12px; }
+.mark {
+  width: 36px; height: 36px; border-radius: 8px; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; color: var(--tint); border: 1.5px solid var(--tint);
+}
+.plat h3 { font-size: 1.25rem; }
+.plat ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.plat li::before { content: "→ "; color: var(--tint); font-family: var(--font-mono); }
+.plat .visit { margin-top: auto; font-family: var(--font-mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.plat:hover .visit { color: var(--tint); }
+.lc { --tint: var(--lc); } .hr { --tint: var(--hr); } .cc { --tint: var(--cc); }
+
+/* About */
+.about { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.edu { display: grid; gap: 18px; }
+.edu div { display: grid; gap: 2px; }
+.edu b { font-weight: 600; }
+.edu span { color: var(--muted); font-size: 14px; }
+.skills { display: grid; gap: 14px; }
+.skills div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; font-size: 15px; }
+.skills dt, .skills div > span:first-child { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding-top: 3px; }
+
+/* Certifications */
+.certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.certs li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+.certs span { font-family: var(--font-mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+/* Contact */
+.contact h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 18ch; }
+.contact .lede { margin-top: 14px; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+.email { font-family: var(--font-mono); font-size: clamp(1rem, 2.6vw, 1.35rem); overflow-wrap: anywhere; user-select: all; }
+.copy { font: inherit; font-size: 13px; cursor: pointer; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+.mailto { font-size: 14px; color: var(--accent); text-underline-offset: 3px; }
+.tiers { margin-top: 36px; border-top: 1px solid var(--line); }
+.tier { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.tier .links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.tier a { font-weight: 600; font-size: 1.05rem; text-decoration: none; border-bottom: 1.5px solid var(--line); transition: border-color .15s, color .15s; }
+.tier a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Footer */
+footer { border-top: 1px solid var(--line); padding-block: 32px 48px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: center; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .hero-grid, .about { grid-template-columns: minmax(0, 1fr); }
+  .platforms { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  .projects, .certs { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-block: 44px 40px; }
+  .tier { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .skills div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .nav .hide-sm { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">K. Gangaraju<span>.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a class="hide-sm" href="#projects">Projects</a>
+      <a class="hide-sm" href="#problem-solving">Problem solving</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="ext" href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="ext" href="https://www.linkedin.com/in/karthikeya-gangaraju-423010324" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <button class="theme" id="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="label">Portfolio · B.Tech CSE (Data Science) · 2024–2028</p>
+        <h1>Karthikeya <em>Gangaraju</em></h1>
+        <p class="role">Computer Science (Data Science) undergraduate building toward AI and software development.</p>
+        <p class="lede">Strong programming and problem-solving foundations, a CGPA of 8.99, and two shipped projects: a job application tracker and an agentic AI placement coach. Looking for entry-level opportunities to build useful things and keep learning.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            Explore My GitHub
+          </a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/karthikeya-gangaraju-423010324" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </div>
+        <div class="facts">
+          <span>CodeChef <b>Silver Badge</b></span>
+          <span>LeetCode <b>200+ solved</b></span>
+          <span>HackerRank <b>5 skill certs</b></span>
+        </div>
+      </div>
+
+      <aside class="index" aria-label="Profile index">
+        <p class="label">Find me online</p>
+        <ul>
+          <li><a href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer"><b>GitHub</b><small>Karthikeya-Gangaraju</small></a></li>
+          <li><a href="https://www.linkedin.com/in/karthikeya-gangaraju-423010324" target="_blank" rel="noopener noreferrer"><b>LinkedIn</b><small>karthikeya-gangaraju</small></a></li>
+          <li><a href="https://leetcode.com/u/Karthikeya_Gangaraju/" target="_blank" rel="noopener noreferrer"><b>LeetCode</b><small>Karthikeya_Gangaraju</small></a></li>
+          <li><a href="https://www.hackerrank.com/profile/G_Karthikeya" target="_blank" rel="noopener noreferrer"><b>HackerRank</b><small>G_Karthikeya</small></a></li>
+          <li><a href="https://www.codechef.com/users/gk_1376" target="_blank" rel="noopener noreferrer"><b>CodeChef</b><small>gk_1376</small></a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <a href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">Browse my repositories on GitHub →</a>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <p class="label">Web application</p>
+          <h3>Job Application Tracker</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Managing many job applications and interview schedules by hand is inefficient.</dd></div>
+            <div><dt>Solution</dt><dd>A responsive web app that tracks applications, interview schedules, deadlines and analytics.</dd></div>
+          </dl>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Chart.js</span><span class="chip">Local Storage</span></div>
+          <a class="go" href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">Find it on GitHub →</a>
+        </article>
+        <article class="project">
+          <p class="label">Agentic AI application</p>
+          <h3>AI Placement Preparation Agent</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Placement preparation is rarely personalized or structured.</dd></div>
+            <div><dt>Solution</dt><dd>An agentic AI app that generates customized study roadmaps, mock interviews, technical questions and performance feedback.</dd></div>
+          </dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Gemini API</span></div>
+          <a class="go" href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">Find it on GitHub →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem-solving">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Problem-solving journey</h2>
+        <span class="label">Open any card to see the live profile</span>
+      </div>
+      <div class="platforms">
+        <a class="plat lc" href="https://leetcode.com/u/Karthikeya_Gangaraju/" target="_blank" rel="noopener noreferrer">
+          <div class="top"><span class="mark" aria-hidden="true">L</span><h3>LeetCode</h3></div>
+          <ul><li>200+ problems solved</li><li>100 Days Coding Badge</li></ul>
+          <span class="visit">leetcode.com/u/Karthikeya_Gangaraju ↗</span>
+        </a>
+        <a class="plat cc" href="https://www.codechef.com/users/gk_1376" target="_blank" rel="noopener noreferrer">
+          <div class="top"><span class="mark" aria-hidden="true">C</span><h3>CodeChef</h3></div>
+          <ul><li>Silver Badge</li><li>250+ problems solved</li><li>Completed all 500 difficulty-rating problems</li></ul>
+          <span class="visit">codechef.com/users/gk_1376 ↗</span>
+        </a>
+        <a class="plat hr" href="https://www.hackerrank.com/profile/G_Karthikeya" target="_blank" rel="noopener noreferrer">
+          <div class="top"><span class="mark" aria-hidden="true">H</span><h3>HackerRank</h3></div>
+          <ul><li>Java</li><li>Python</li><li>CSS</li><li>JavaScript</li><li>SQL (Basic)</li></ul>
+          <span class="visit">hackerrank.com/profile/G_Karthikeya ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="sec-head"><h2>Education</h2></div>
+        <div class="edu">
+          <div><b>Prasad V Potluri Siddhartha Institute of Technology</b><span>B.Tech in Computer Science (Data Science) · 2024–2028 · CGPA 8.99 (pursuing)</span></div>
+          <div><b>NRI Junior College</b><span>Intermediate (MPC) · 2022–2024 · 94.1%</span></div>
+          <div><b>Ravindra Bharathi Public School</b><span>SSC · 2021–2022 · 94.8%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head"><h2>Skills</h2></div>
+        <div class="skills">
+          <div><span>Languages</span><span>Java, Python, C</span></div>
+          <div><span>Web</span><span>HTML, CSS, JavaScript</span></div>
+          <div><span>Data</span><span>Data Analysis, Data Visualization, Data Engineering, Advanced Data Structures and Algorithm Analysis, Object-Oriented Programming</span></div>
+          <div><span>Core CS</span><span>DBMS, Digital Logic and Computer Organization</span></div>
+          <div><span>Tools</span><span>Git, GitHub, MySQL, VS Code, Pandas, Matplotlib, Seaborn, BeautifulSoup</span></div>
+          <div><span>Soft skills</span><span>Communication, Analytical Thinking, Logical Reasoning</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="sec-head"><h2>Certifications</h2></div>
+      <ul class="certs">
+        <li>Azure AI Fundamentals · Microsoft <span>2026</span></li>
+        <li>Agentic AI Certified Foundations Associate · Oracle <span>2026</span></li>
+        <li>Fabric Analytics Engineer Associate · Microsoft <span>2026</span></li>
+        <li>Python Programming · Udemy <span>2023</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2 style="margin-top:14px">Let's build something useful.</h2>
+      <p class="lede">I'm open to entry-level roles and internships in AI and software development. Email is the fastest way to reach me.</p>
+      <div class="email-row">
+        <span class="email" id="email">gangarajukarthikeya07@gmail.com</span>
+        <button class="copy" id="copy" type="button">Copy</button>
+        <a class="mailto" href="mailto:gangarajukarthikeya07@gmail.com">Open in mail app</a>
+      </div>
+      <div class="tiers">
+        <div class="tier"><span class="label">Networking</span><div class="links"><a href="https://www.linkedin.com/in/karthikeya-gangaraju-423010324" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div></div>
+        <div class="tier"><span class="label">Code and projects</span><div class="links"><a href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">Explore My GitHub ↗</a></div></div>
+        <div class="tier"><span class="label">Problem solving</span><div class="links">
+          <a href="https://leetcode.com/u/Karthikeya_Gangaraju/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+          <a href="https://www.hackerrank.com/profile/G_Karthikeya" target="_blank" rel="noopener noreferrer">HackerRank ↗</a>
+          <a href="https://www.codechef.com/users/gk_1376" target="_blank" rel="noopener noreferrer">CodeChef ↗</a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Karthikeya Gangaraju · Mangalagiri, Andhra Pradesh</span>
+    <nav aria-label="Profiles">
+      <a href="https://github.com/Karthikeya-Gangaraju" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/karthikeya-gangaraju-423010324" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://leetcode.com/u/Karthikeya_Gangaraju/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+      <a href="https://www.hackerrank.com/profile/G_Karthikeya" target="_blank" rel="noopener noreferrer">HackerRank</a>
+      <a href="https://www.codechef.com/users/gk_1376" target="_blank" rel="noopener noreferrer">CodeChef</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById("theme-toggle");
+  toggle.addEventListener("click", function () {
+    var explicit = root.getAttribute("data-theme");
+    var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var isDark = explicit ? explicit === "dark" : systemDark;
+    root.setAttribute("data-theme", isDark ? "light" : "dark");
+  });
+
+  var btn = document.getElementById("copy");
+  var email = document.getElementById("email");
+  btn.addEventListener("click", function () {
+    var text = email.textContent;
+    function fallback() {
+      var range = document.createRange();
+      range.selectNodeContents(email);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = "Selected, press copy";
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = "Copy"; }, 1600);
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
